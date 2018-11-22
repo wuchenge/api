@@ -96,7 +96,7 @@ class LoginController extends ApiController
     }
 
     /**
-     * @api {post} login 刷新token
+     * @api {post} refresh 刷新token
      * @apiDescription 需要登录凭证
      * @apiGroup login
      *

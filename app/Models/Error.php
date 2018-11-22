@@ -8,6 +8,7 @@ class Error extends Model
     {
         return self::where('error_code', $error_code)
                      ->where('language', $language)
+                     ->limit(1)
                      ->value('content');
     }
 }

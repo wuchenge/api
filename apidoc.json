@@ -1,0 +1,9 @@
+{
+    "name": "apiDemo",
+    "version": "1.0.0",
+    "description": "api",
+    "title": "apiDemo",
+    "url": "http://api.test/api/v1/",
+    "sampleUrl": "http:/api.test/api/v1/"
+
+}

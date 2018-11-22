@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use App\Http\Controllers\Api\ApiController;
 
 class Handler extends ExceptionHandler
 {
@@ -13,7 +14,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        //
+        InvalidRequestException::class,
     ];
 
     /**
@@ -46,6 +47,15 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if (config('app.debug')) {
+            return parent::render($request, $exception);
+        }
+
+        if ($request->is('api/*')) {
+            $error = $this->convertExceptionToResponse($exception);
+            $api = new ApiController;
+            return $api->setErrorCode(100000 + $error->getStatusCode())->response();
+        }
         return parent::render($request, $exception);
     }
 }

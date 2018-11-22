@@ -12,3 +12,9 @@
 * Ctype PHP 扩展
 * JSON PHP 扩展
 * Redis PHP 扩展
+
+
+## 生成api文档
+```
+apidoc -i app/Http/Controllers/Api -o public/apidoc
+```

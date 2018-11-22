@@ -39,7 +39,7 @@ class FormRequest extends BaseFormRequest
     protected function failedAuthorization()
     {
         if ($validator->errors()) {
-            throw new HttpException(403);
+            throw new InvalidRequestException(100403);
         }
 
         parent::failedAuthorization();

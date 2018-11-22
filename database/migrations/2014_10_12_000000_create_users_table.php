@@ -15,7 +15,10 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('phone');
+            // 手机号码
+            $table->string('phone')->unique();
+            // 登录方式
+            $table->string('type');
             $table->timestamps();
         });
     }

@@ -19,7 +19,8 @@ class ApiController extends Controller
     protected $error_code = 0;
 
     protected $not_login_code = 100401;
-    protected $params_error_code = 100404;
+    protected $params_miss_error_code = 100402;
+    protected $params_format_error_code = 100403;
     protected $failed_code = 1;
 
     /**
@@ -105,7 +106,7 @@ class ApiController extends Controller
             return $user->language;
         }
 
-        return config('my.api_default_language');
+        return config('services.my.api_default_language');
     }
 
     /**
@@ -124,14 +125,13 @@ class ApiController extends Controller
         // 获取语言
         $language = $this->getLanguage();
 
-        if ($message == '') {
+        if (!$message) {
             // 从数据库获取消息
             $message = Error::getError($error_code, $language);
 
             // 获取不到则读默认消息
-            $msg = config('my.api_default_message');
             if (!$message) {
-                $message = $msg;
+                $message = config('services.my.api_default_message');
             }
         }
 
@@ -156,11 +156,19 @@ class ApiController extends Controller
     }
 
     /**
-     * 参数错误
+     * 缺少参数
      */
-    public function paramsError()
+    public function paramsMissError()
     {
-        return $this->setErrorCode($this->params_error_code)->response();
+        return $this->setErrorCode($this->params_miss_error_code)->response();
+    }
+
+    /**
+     * 参数格式错误
+     */
+    public function paramsFormatError()
+    {
+        return $this->setErrorCode($this->params_format_error_code)->response();
     }
 
     /**

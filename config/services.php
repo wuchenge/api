@@ -49,7 +49,10 @@ return [
     ],
 
     'my' => [
-        'no_verify_phone' => env('NO_VERIFY_PHONE', '')
+        'no_verify_phone' => env('NO_VERIFY_PHONE', ''),
+        'api_default_language' => env('API_DEFAULT_LANGUAGE', 'zh_CN'),
+        'api_default_message' => env('API_DEFAULT_MESSAGE', ''),
+        'app_login_type' => explode(',', env('APP_LOGIN_TYPE', ''))
     ]
 
 ];

@@ -52,7 +52,13 @@ return [
         'no_verify_phone' => env('NO_VERIFY_PHONE', ''),
         'api_default_language' => env('API_DEFAULT_LANGUAGE', 'zh_CN'),
         'api_default_message' => env('API_DEFAULT_MESSAGE', ''),
-        'app_login_type' => explode(',', env('APP_LOGIN_TYPE', ''))
-    ]
+        'app_login_type' => explode(',', env('APP_LOGIN_TYPE', '')),
+    ],
+
+    'youdao' => [
+       'appKey' => env('YOUDAO_APP_KEY'),
+       'appSecret' => env('YOUDAO_APP_SECRET'),
+    ],
+
 
 ];

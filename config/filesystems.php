@@ -64,6 +64,22 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'qiniu' => [
+            'driver'  => 'qiniu',
+            'domains' => [
+                'default'   => env('QINIU_DOMAIN'), //你的七牛域名
+                'https'     => 'dn-yourdomain.qbox.me',         //你的HTTPS域名
+                'custom'    => 'static.abc.com',                //Useless 没啥用，请直接使用上面的 default 项
+             ],
+            'access_key'=> env('QINIU_AK'),  //AccessKey
+            'secret_key'=> env('QINIU_SK'),  //SecretKey
+            'bucket'    => env('QINIU_BUCKET'),  //Bucket名字
+            'notify_url'=> '',  //持久化处理回调地址
+            'access'    => 'public',  //空间访问控制 public 或 private
+            'url' => env('QINIU_DOMAIN'),
+            'prefix' => env('QINIU_HTTP') . env('QINIU_DOMAIN'),
+        ],
+
     ],
 
 ];

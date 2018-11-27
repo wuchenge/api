@@ -10,6 +10,7 @@
         "encore/laravel-admin": "^1.6",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
+        "itsgoingd/clockwork": "^3.0",
         "jellybool/translug": "^2.0",
         "laravel-admin-ext/grid-lightbox": "^1.0",
         "laravel-admin-ext/redis-manager": "^1.0",
@@ -25,6 +26,7 @@
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^2.0",
+        "overtrue/laravel-query-logger": "^1.0",
         "phpunit/phpunit": "^7.0"
     },
     "autoload": {

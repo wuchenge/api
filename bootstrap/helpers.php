@@ -31,3 +31,17 @@ function createCode($type = 1, $len = 6)
 
     return $code;
 }
+
+/**
+ * 自定义dd
+ * @param  [type] $model [description]
+ * @return [type]        [description]
+ */
+function dda($model)
+{
+    if (method_exists($model, 'toArray')) {
+        dd($model->toArray());
+    } else {
+        dd($model);
+    }
+}
